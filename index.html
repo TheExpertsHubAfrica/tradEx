@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHINA TradEx Africa Summit - Importers Edition</title>
+    <style>
+        :root {
+            --primary: #E31937; /* Chinese red */
+            --secondary: #FFD700; /* Gold */
+            --dark: #1A1A1A;
+            --light: #F8F8F8;
+            --accent: #005792; /* Blue for accents */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #B80F2A);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="10" y="50" font-family="Arial" font-size="20" fill="rgba(255,255,255,0.05)">TradEx</text></svg>');
+            opacity: 0.1;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            color: var(--secondary);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .highlight-box {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-left: 4px solid var(--secondary);
+            padding: 15px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .event-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 40px 0;
+            gap: 20px;
+        }
+        
+        .details-card {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+        
+        .details-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .details-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+        }
+        
+        ul.features {
+            list-style-type: none;
+        }
+        
+        ul.features li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        ul.features li::before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .giveaway {
+            background: linear-gradient(135deg, var(--secondary), #FFC000);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .giveaway h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .prizes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .prize {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            min-width: 120px;
+        }
+        
+        .speakers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .speaker-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .speaker-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .speaker-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid var(--secondary);
+        }
+        
+        .speaker-card h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .speaker-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .registration-form {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .registration-form h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(227, 25, 55, 0.2);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        button[type="submit"] {
+            background: linear-gradient(135deg, var(--primary), #B80F2A);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        button[type="submit"]:hover {
+            background: linear-gradient(135deg, #B80F2A, var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(227, 25, 55, 0.3);
+        }
+        
+        .success-message {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-link {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: white;
+        }
+        
+        .hashtags {
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        .partners {
+            margin-top: 30px;
+        }
+        
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .partner-logos img {
+            height: 50px;
+            filter: grayscale(100%) brightness(150%);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logos img:hover {
+            filter: grayscale(0%) brightness(100%);
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CHINA TradEx</h1>
+            <h2>AFRICA SUMMIT</h2>
+            <div class="highlight-box">
+                <p><strong>IMPORTERS EDITION</strong></p>
+                <p>A 2-day immersive experience designed to build Africa's next generation of international trade leaders.</p>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="event-details">
+            <div class="details-card">
+                <h3>WHAT TO EXPECT</h3>
+                <ul class="features">
+                    <li>Expert Panels & Industry Workshops</li>
+                    <li>Real-time Supplier Engagement & Trade Simulations</li>
+                    <li>Freight, Customs & Shipping Breakdown</li>
+                    <li>Capital Access Training</li>
+                    <li>Network with Top Trade & Finance Professionals</li>
+                </ul>
+            </div>
+            
+            <div class="details-card">
+                <h3>EVENT DETAILS</h3>
+                <p><strong>Date:</strong> 20TH & 21ST JUNE, 2025</p>
+                <p><strong>Time:</strong> 9:00 AM - 5:00 PM Daily</p>
+                <p><strong>Venue:</strong> BRITISH COUNCIL, ACCRA</p>
+                <p><strong>Rate:</strong> GHC 1,000</p>
+                <p><strong>Dress Code:</strong> Business Formal</p>
+            </div>
+        </div>
+        
+        <div class="giveaway">
+            <h3>GIVEAWAY ALERT!</h3>
+            <p>Win Start-Up Capital to kickstart your trade venture!</p>
+            <div class="prizes">
+                <div class="prize">GHS 2,000</div>
+                <div class="prize">GHS 1,500</div>
+                <div class="prize">GHS 1,000</div>
+            </div>
+            <p>Awarded to 3 outstanding participants</p>
+        </div>
+        
+        <div class="speakers">
+            <div class="speaker-card">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Andrew Philip Barnor">
+                <h4>ANDREW PHILIP BARNOR</h4>
+                <p>Entrepreneur-CEO, AndyTrack Trade</p>
+            </div>
+            
+            <div class="speaker-card">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Prince Okoampah">
+                <h4>PRINCE OKOAMPAH</h4>
+                <p>CEO - The Experts Hub Africa</p>
+            </div>
+        </div>
+        
+        <div class="registration-form">
+            <h3>REGISTER NOW</h3>
+            <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbxdQzZSgfn41eTSOGKxm8mtVFkiBnMjYWaFaOuezteucrQh4LGb5M7Or-3nuqRe3z5H/exec" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name*</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number*</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="position">Position/Title</label>
+                        <input type="text" id="position" name="position">
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Industry*</label>
+                        <select id="industry" name="industry" required>
+                            <option value="">Select your industry</option>
+                            <option value="Agriculture">Agriculture</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Retail">Retail</option>
+                            <option value="Import/Export">Import/Export</option>
+                            <option value="Logistics">Logistics</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="expectations">What are your expectations from this summit?</label>
+                    <textarea id="expectations" name="expectations" rows="4"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="howHeard">How did you hear about this event?</label>
+                    <select id="howHeard" name="howHeard">
+                        <option value="">Select an option</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Email">Email</option>
+                        <option value="Friend/Colleague">Friend/Colleague</option>
+                        <option value="Flyer/Poster">Flyer/Poster</option>
+                        <option value="Website">Website</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <button type="submit">REGISTER NOW</button>
+                
+                <div id="successMessage" class="success-message">
+                    Thank you for registering! A confirmation email has been sent to your inbox.
+                </div>
+            </form>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link">📱</a>
+                <a href="#" class="social-link">📸</a>
+                <a href="#" class="social-link">💼</a>
+                <a href="#" class="social-link">🐦</a>
+            </div>
+            
+            <p>FOLLOW US: @tradexafrica</p>
+            
+            <div class="hashtags">
+                <p>#TradEXImportersEdition #AfricanTradeEmpowered</p>
+            </div>
+            
+            <div class="partners">
+                <h4>PARTNERS</h4>
+                <div class="partner-logos">
+                    <img src="https://via.placeholder.com/150x50?text=Partner+1" alt="Partner 1">
+                    <img src="https://via.placeholder.com/150x50?text=Partner+2" alt="Partner 2">
+                    <img src="https://via.placeholder.com/150x50?text=Partner+3" alt="Partner 3">
+                </div>
+                
+                <h4 style="margin-top: 30px;">MEDIA PARTNERS</h4>
+                <div class="partner-logos">
+                    <img src="https://via.placeholder.com/150x50?text=Media+1" alt="Media Partner 1">
+                    <img src="https://via.placeholder.com/150x50?text=Media+2" alt="Media Partner 2">
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px;">&copy; 2025 CHINA TradEx Africa Summit. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Processing...';
+            
+            // Submit the form
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                mode: 'no-cors'
+            })
+            .then(() => {
+                // Show success message
+                document.getElementById('successMessage').style.display = 'block';
+                this.reset();
+                
+                // Reset button
+                submitButton.disabled = false;
+                submitButton.textContent = 'REGISTER NOW';
+                
+                // Scroll to success message
+                document.getElementById('successMessage').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting your registration. Please try again.');
+                
+                // Reset button
+                submitButton.disabled = false;
+                submitButton.textContent = 'REGISTER NOW';
+            });
+        });
+    </script>
+</body>
+</html>
