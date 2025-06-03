@@ -141,7 +141,7 @@
         }
         
         .giveaway {
-            background: linear-gradient(135deg, var(--secondary), #FFC000);
+            background: linear-gradient(135deg, #a259c4, #6a11cb);
             padding: 20px;
             border-radius: 8px;
             text-align: center;
@@ -150,9 +150,13 @@
         }
         
         .giveaway h3 {
-            color: var(--primary);
+            color: white;
             font-size: 1.8rem;
             margin-bottom: 10px;
+        }
+
+        .giveaway p {
+            color: white;
         }
         
         .prizes {
@@ -164,8 +168,8 @@
         }
         
         .prize {
-            background-color: var(--primary);
-            color: white;
+            background-color: white;
+            color: var(--primary);
             padding: 15px 25px;
             border-radius: 5px;
             font-weight: bold;
@@ -186,7 +190,7 @@
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            width: 380px;
+            width: 300px;
             text-align: center;
             transition: transform 0.3s ease;
         }
