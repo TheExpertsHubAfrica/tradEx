@@ -15,6 +15,89 @@
                 <p><strong>IMPORTERS EDITION</strong></p>
                 <p>A 2-day immersive experience designed to build Africa's next generation of international trade leaders.</p>
             </div>
+            <div class="countdown" style="margin: 32px auto 0; max-width: 420px; background-color: rgb(87, 86, 86, 0.8); border-radius: 18px; box-shadow: 0 2px 12px rgba(229,45,39,0.07); padding: 18px 0 10px; text-align: center;">
+                <p style="font-size: 1.1rem; color: #b31217; font-weight: 600; margin-bottom: 10px; letter-spacing: 1px;">
+                    Countdown to Event:
+                </p>
+                <div id="countdown-timer" style="display: flex; justify-content: center; gap: 18px;">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <span id="days" style="font-size: 2.2rem; font-weight: bold; color: #e52d27; background: #fff; border-radius: 8px; min-width: 48px; padding: 4px 0; box-shadow: 0 1px 4px rgba(229,45,39,0.08);">00</span>
+                        <span style="font-size: 0.95rem; color: #b31217; margin-top: 2px;">Days</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <span id="hours" style="font-size: 2.2rem; font-weight: bold; color: #e52d27; background: #fff; border-radius: 8px; min-width: 48px; padding: 4px 0; box-shadow: 0 1px 4px rgba(229,45,39,0.08);">00</span>
+                        <span style="font-size: 0.95rem; color: #b31217; margin-top: 2px;">Hours</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <span id="minutes" style="font-size: 2.2rem; font-weight: bold; color: #e52d27; background: #fff; border-radius: 8px; min-width: 48px; padding: 4px 0; box-shadow: 0 1px 4px rgba(229,45,39,0.08);">00</span>
+                        <span style="font-size: 0.95rem; color: #b31217; margin-top: 2px;">Minutes</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <span id="seconds" style="font-size: 2.2rem; font-weight: bold; color: #e52d27; background: #fff; border-radius: 8px; min-width: 48px; padding: 4px 0; box-shadow: 0 1px 4px rgba(229,45,39,0.08);">00</span>
+                        <span style="font-size: 0.95rem; color: #b31217; margin-top: 2px;">Seconds</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div style="display: flex; justify-content: center; margin-top: 20px;">
+                <a href="#registration-form" style="
+                    display: inline-block;
+                    background: linear-gradient(90deg, #e52d27 0%, #b31217 100%);
+                    color: #fff;
+                    border: none;
+                    border-radius: 30px;
+                    padding: 14px 36px;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    cursor: pointer;
+                    box-shadow: 0 4px 16px rgba(229,45,39,0.15);
+                    transition: background 0.3s, transform 0.2s;
+                    text-decoration: none;
+                    text-align: center;
+                ">
+                    Register Below
+                </a>
+            </div> -->
+            <script>
+                // Countdown Timer
+                (function() {
+                    const eventDate = new Date('2025-06-20T09:00:00');
+                    const daysSpan = document.getElementById('days');
+                    const hoursSpan = document.getElementById('hours');
+                    const minutesSpan = document.getElementById('minutes');
+                    const secondsSpan = document.getElementById('seconds');
+
+                    function updateCountdown() {
+                        const now = new Date();
+                        const diff = eventDate - now;
+                        if (diff <= 0) {
+                            daysSpan.textContent = '00';
+                            hoursSpan.textContent = '00';
+                            minutesSpan.textContent = '00';
+                            secondsSpan.textContent = '00';
+                            return;
+                        }
+                        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                        const seconds = Math.floor((diff / 1000) % 60);
+
+                        daysSpan.textContent = String(days).padStart(2, '0');
+                        hoursSpan.textContent = String(hours).padStart(2, '0');
+                        minutesSpan.textContent = String(minutes).padStart(2, '0');
+                        secondsSpan.textContent = String(seconds).padStart(2, '0');
+                    }
+                    updateCountdown();
+                    setInterval(updateCountdown, 1000);
+                })();
+
+                // Scroll to Registration Form
+                // document.getElementById('scrollToRegister').addEventListener('click', function() {
+                //     const formSection = document.querySelector('#registration-form');
+                //     if (formSection) {
+                //         formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                //     }
+                // });
+            </script>
         </div>
     </header>
     
@@ -66,8 +149,7 @@
             </div>
             <p>Awarded to 3 outstanding participants</p>
         </div>
-        
-        <div class="registration-form">
+        <div id="registration-form" class="registration-form">
             <h3>REGISTER NOW</h3>
             <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbxdQzZSgfn41eTSOGKxm8mtVFkiBnMjYWaFaOuezteucrQh4LGb5M7Or-3nuqRe3z5H/exec" method="POST">
                 <div class="form-row">
