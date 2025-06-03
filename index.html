@@ -108,7 +108,7 @@
         <h3 class="section-title">
             Meet Our Speakers
         </h3>
-        <div class="speakers">
+        <!-- <div class="speakers">
             <div class="speaker-card">
                 <img src="img/korkor.JPG" alt="Prince Okoampah">
                 <h4>AMANORTEY REJOYCE KORKOR</h4>
@@ -124,7 +124,185 @@
                 <h4>PRINCE OKOAMPAH</h4>
                 <p>CEO - The Experts Hub Africa</p>
             </div>
-        </div>
+        </div> -->
+        <!--Events Flyer Section -->
+        <section id="upcoming-posts" class="upcoming-posts section">
+            <div class="container position-relative" style="max-width:900px; position:relative;">
+            <button class="event-arrow left" aria-label="Previous Event" style="background:#200557; border:2px solid #fff; box-shadow:0 2px 8px rgba(32,5,87,0.22); opacity:1;">
+                &#8249;
+            </button>
+            <div id="event-slider-wrapper">
+                <div id="event-slider">
+                <div class="event-slide">
+                    <div class="post-item">
+                    <img src="img/Tradex main.jpg" alt="">
+                    </div>
+                </div>
+                <div class="event-slide">
+                    <div class="post-item">
+                    <img src="img/Tradex korkor.jpg" alt="">
+                    </div>
+                </div>
+                <div class="event-slide">
+                    <div class="post-item">
+                    <img src="img/tradex andrew.jpg" alt="">
+                    </div>
+                </div>
+                <div class="event-slide">
+                    <div class="post-item">
+                    <img src="img/tradex prince.jpg" alt="">
+                    </div>
+                </div>
+                </div>
+            </div>
+            <button class="event-arrow right" aria-label="Next Event" style="background:#200557; border:2px solid #fff; box-shadow:0 2px 8px rgba(32,5,87,0.22); opacity:1;">
+                &#8250;
+            </button>
+            </div>
+            <style>
+            #upcoming-posts {
+                background: linear-gradient(135deg, #200557 60%, #e52d27 100%);
+                padding: 32px 0 24px 0;
+                border-radius: 18px;
+                margin-bottom: 36px;
+            }
+            #event-slider-wrapper {
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 60px;
+                box-sizing: border-box;
+                overflow-x: hidden;
+            }
+            #event-slider {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 2rem;
+                transition: transform 0.5s cubic-bezier(.4,2,.6,1);
+                will-change: transform;
+            }
+            .event-slide {
+                min-width: 320px;
+                max-width: 340px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .post-item {
+                background: #fff;
+                min-height: 220px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0.5rem;
+                box-shadow: 0 2px 12px rgba(32,5,87,0.07);
+                padding: 8px;
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+            .post-item img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 0.5rem;
+                box-shadow: 0 1px 8px rgba(32,5,87,0.10);
+                background: #fff;
+            }
+            .event-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 10;
+                background: #200557;
+                border: 2px solid #fff;
+                border-radius: 50%;
+                width: 52px;
+                height: 52px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 2.2rem;
+                box-shadow: 0 2px 8px rgba(32,5,87,0.22);
+                opacity: 1;
+                transition: background 0.2s, opacity 0.2s, border 0.2s;
+                cursor: pointer;
+                outline: 3px solid #e52d27;
+                outline-offset: 2px;
+            }
+            .event-arrow.left { left: 10px; }
+            .event-arrow.right { right: 10px; }
+            .event-arrow:hover, .event-arrow:focus {
+                background: #e52d27;
+                color: #fff;
+                opacity: 1;
+                border: 2px solid #fff;
+                outline: 3px solid #fff;
+            }
+            .post-item:hover {
+                transform: translateY(-8px) scale(1.03);
+                box-shadow: 0 8px 16px 0 rgba(32,5,87,0.18), 0 1.5px 8px 0 rgba(229,45,39,0.10);
+            }
+            @media (max-width: 767.98px) {
+                #event-slider-wrapper {
+                padding: 0 10px;
+                }
+                .event-slide {
+                min-width: 90vw !important;
+                max-width: 95vw !important;
+                }
+                .event-arrow {
+                width: 38px !important;
+                height: 38px !important;
+                font-size: 1.3rem !important;
+                left: 2px !important;
+                right: 2px !important;
+                }
+            }
+            </style>
+            <script>
+            (function() {
+                const slider = document.getElementById('event-slider');
+                const slides = slider.querySelectorAll('.event-slide');
+                const leftBtn = document.querySelector('.event-arrow.left');
+                const rightBtn = document.querySelector('.event-arrow.right');
+                let current = 0;
+                const total = slides.length;
+                function getSlideWidth() {
+                return slides[0].offsetWidth + (parseFloat(getComputedStyle(slider).gap) || 32);
+                }
+                function updateSlider() {
+                const slideW = getSlideWidth();
+                slider.style.transform = `translateX(${-current * slideW}px)`;
+                }
+                leftBtn.addEventListener('click', function() {
+                current = (current - 1 + total) % total;
+                updateSlider();
+                });
+                rightBtn.addEventListener('click', function() {
+                current = (current + 1) % total;
+                updateSlider();
+                });
+                window.addEventListener('resize', updateSlider);
+                // Swipe support for mobile
+                let startX = null;
+                slider.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+                });
+                slider.addEventListener('touchend', e => {
+                if (startX === null) return;
+                let dx = e.changedTouches[0].clientX - startX;
+                if (Math.abs(dx) > 40) {
+                    if (dx < 0) rightBtn.click();
+                    else leftBtn.click();
+                }
+                startX = null;
+                });
+                // Init
+                setTimeout(updateSlider, 100);
+            })();
+            </script>
+        </section>
         <div class="event-details">
             <div class="details-card">
                 <h3>WHAT TO EXPECT</h3>
